@@ -52,7 +52,7 @@ class DATA_READER(object):
 
     def get_points(self):
         return (str(self.data['points']['points']) + ' / ' + str(self.data['points']['total'])), (
-                    int(self.data['points']['points']) / int(self.data['points']['total'])),
+                int(self.data['points']['points']) / int(self.data['points']['total'])),
 
     def get_ranks(self):
         types = self.data['types']
@@ -121,7 +121,6 @@ def get_reg_flag(country):
 
 
 def draw_pic(mode):
-
     if mode == 'jpg':
         return
     _ = get_map_value
@@ -651,15 +650,23 @@ def draw_pic(mode):
 app = Flask(__name__)
 
 
+@app.route("/", methods=["GET"])
+def home():
+    return '''please use /svg to generate card
+    args:username,team,skin
+    example: /svg?username=xy_cloud&team=TeeFun&skin=AmethystCat'''
 @app.route("/svg", methods=["GET"])
 def getsvg():
     global mapping
     username = request.args.get("username")
     team = request.args.get("team")
-    if username == None:
+    skin = request.args.get("skin")
+    if username is None:
         username = 'nameless tee'
-    if team == None:
+    if team is None:
         team = ''
+    if skin is None:
+        skin = 'default'
     print(username, team)
     dr = DATA_READER(get_ddnet_with_username(username))
     # 映射表
@@ -668,7 +675,7 @@ def getsvg():
     mapping = {
         'username': username,
         'team': team,
-        'skin_url': 'https://ddnet.org/skins/skin/community/AmethystCat.png',
+        'skin_url': f'https://ddnet.org/skins/skin/community/{skin}.png',
         'country': dr.get_country(),
         'Global Rank': dr.get_global_rank(),
         'Total365': dr.get_total365(),

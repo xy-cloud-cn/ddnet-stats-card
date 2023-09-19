@@ -1,0 +1,5 @@
+ziafont
+requests
+ipython
+pillow
+flask

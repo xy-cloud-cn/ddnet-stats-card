@@ -2,7 +2,6 @@
 # Author : xy_cloud
 import base64
 from flask import Flask, request
-import ziafont
 import requests
 import json
 import re
@@ -124,7 +123,6 @@ def draw_pic(mode):
     if mode == 'jpg':
         return
     _ = get_map_value
-    font = ziafont.Font('../fonts/Comfortaa/Comfortaa-Bold-2.ttf')
     svg = ET.Element('svg')
     svg.set('width', '570')
     svg.set('height', '285')

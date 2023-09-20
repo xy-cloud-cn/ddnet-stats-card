@@ -652,9 +652,11 @@ app = Flask(__name__)
 
 @app.route("/", methods=["GET"])
 def home():
-    return '''please use /svg to generate card
-    args:username,team,skin
-    example: /svg?username=xy_cloud&team=TeeFun&skin=AmethystCat'''
+    return '''<p>please use /svg to generate card</p>
+    <p>args:username,team,skin</p>
+    <p>example: /svg?username=xy_cloud&team=TeeFun&skin=AmethystCat</p>'''
+
+
 @app.route("/svg", methods=["GET"])
 def getsvg():
     global mapping
@@ -692,4 +694,3 @@ def getsvg():
     return draw_pic('svg')
 
 
-app.run(host='0.0.0.0', port=8080)

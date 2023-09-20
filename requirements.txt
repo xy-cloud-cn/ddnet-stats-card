@@ -3,3 +3,5 @@ requests
 ipython
 pillow
 flask
+gunicorn
+gevent

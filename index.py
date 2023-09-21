@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 # Author : xy_cloud
 import base64
-from flask import Flask, request
+import io
+
+from flask import Flask, request,send_file
 import requests
 import json
 import re
@@ -635,8 +637,8 @@ def draw_pic(mode):
     total_time_num_tspan.set('y', '218.591')
     total_time_num_tspan.text = _('total_time')
     if mode == 'svg text to path(only english username)':
-        font.text(f'{_("username")}\'s DDNet Stats', size=20, color='#6D86DD').drawon(svg, 23, 25.2727)
-
+        # font.text(f'{_("username")}\'s DDNet Stats', size=20, color='#6D86DD').drawon(svg, 23, 25.2727)
+        pass
         # with open('../output.svg', 'w', encoding='utf-8') as f:
         #     f.write(SVG(ET.tostring(svg)).data)
     elif mode == 'svg':
@@ -689,6 +691,5 @@ def getsvg():
         'percent_points': pt[1],
         'percent_rank': 0.5
     }
-    return draw_pic('svg')
 
-
+    return app.response_class(draw_pic('svg'), mimetype='image/svg+xml')

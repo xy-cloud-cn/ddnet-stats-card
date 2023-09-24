@@ -666,7 +666,7 @@ def getsvg():
     if team is None:
         team = ''
     if skin is None:
-        skin = 'default'
+        skin = 'https://ddnet.org/skins/skin/default.png'
     print(username, team)
     dr = DATA_READER(get_ddnet_with_username(username))
     # 映射表
@@ -675,7 +675,7 @@ def getsvg():
     mapping = {
         'username': username,
         'team': team,
-        'skin_url': f'https://ddnet.org/skins/skin/community/{skin}.png',
+        'skin_url': skin,
         'country': dr.get_country(),
         'Global Rank': dr.get_global_rank(),
         'Total365': dr.get_total365(),
@@ -696,3 +696,7 @@ def getsvg():
 @app.route("/skinjson", methods=["GET"])
 def getskinjson():
     return requests.get('https://ddnet.org/skins/skin/skins.json').text
+@app.route("/ghskinjson", methods=["GET"])
+def getghskinjson():
+    return requests.get('https://api.github.com/repos/ddnet/ddnet/contents/data/skins').text
+

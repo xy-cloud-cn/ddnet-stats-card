@@ -3,7 +3,7 @@
 import base64
 import io
 
-from flask import Flask, request,send_file
+from flask import Flask, request, render_template
 import requests
 import json
 import re
@@ -652,9 +652,7 @@ app = Flask(__name__)
 
 @app.route("/", methods=["GET"])
 def home():
-    return '''<p>please use /svg to generate card</p>
-    <p>args:username,team,skin</p>
-    <p>example: /svg?username=xy_cloud&team=TeeFun&skin=AmethystCat</p>'''
+    return render_template("index.html")
 
 
 @app.route("/svg", methods=["GET"])
@@ -693,3 +691,10 @@ def getsvg():
     }
 
     return app.response_class(draw_pic('svg'), mimetype='image/svg+xml')
+
+
+@app.route("/skinjson", methods=["GET"])
+def getskinjson():
+    return requests.get('https://ddnet.org/skins/skin/skins.json').text
+
+app.run()

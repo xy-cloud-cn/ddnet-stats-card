@@ -1,0 +1,130 @@
+
+body {
+    font-family: sans-serif, serif;
+    background: whitesmoke;
+    user-select:none;!important;
+}
+
+.container {
+    border-radius: 16px;
+    padding: 20px;
+    margin: 5vh 5vw;
+    position: relative;
+    background: rgb(69, 40, 83);
+}
+
+.inputbox {
+
+    text-align: center;
+    color: whitesmoke;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.inputbox input {
+    box-sizing: content-box;
+    height: 16px;
+    font-size: 1.5em;
+    color: whitesmoke;
+    padding: 4px 0;
+    margin: auto;
+    background: transparent;
+    border: 0;
+    outline: none;
+    text-align: center;
+}
+.inputbox label{
+    position: relative;
+}
+.inputbox input ~ .spanleft {
+  position: absolute;
+  left: 50%;
+  right: 0;
+  bottom: -5px;
+  height: 2px;
+  background-color: #ffffff;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.inputbox input:focus ~ .spanleft {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+.inputbox input ~ .spanright {
+  position: absolute;
+  left: 0;
+  right: 50%;
+  bottom: -5px;
+  height: 2px;
+  background-color: #ffffff;
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.inputbox input:focus ~ .spanright {
+  transform: scaleX(1);
+  transform-origin: right center;
+}
+
+.inputbox input::placeholder {
+    color: #7b7b7b;
+}
+
+.card-preview {
+    display: flex;
+    justify-content: center;
+    width: 570px;
+    height: 285px;
+    margin: auto auto 30px;
+}
+
+.card-preview svg {
+    float: left;
+}
+
+#inputform table{
+    width: 50%;
+    margin: auto;
+    border-radius: 8px;
+    border: solid 1px #ff5ef6;
+}
+
+.generate{
+    position: relative;
+    border: #ff5ef6 1px solid;
+    border-radius: 8px;
+    padding: 10px;
+    width: 30%;
+    height: auto;
+    margin: 30px auto;
+    text-align: center;
+    color: white;
+    font: bold 16px sans-serif;
+    background: #6d1868;
+}
+.generate:hover{
+    background: #ff5ef6;
+}
+
+.generate_url{
+    position: relative;
+    border: #ff5ef6 1px solid;
+    border-radius: 8px;
+    padding: 10px;
+    width: 50%;
+    height: auto;
+    margin: 30px auto;
+    text-align: center;
+    color: white;
+    font: bold 16px sans-serif;
+    background: #51194e;
+}
+#copy_url_btn{
+    display: inline-block;
+    right:0;
+    position: absolute;
+    margin-right: 15px;
+}

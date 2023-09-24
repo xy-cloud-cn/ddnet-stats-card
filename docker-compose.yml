@@ -1,7 +1,7 @@
 version: "3"
 services:
   ddnstatscard:
-    image: ddnstatscard:2.0.2 # 生成的镜像的名称 和 tag
+    image: ddnstatscard:2.1 # 生成的镜像的名称 和 tag
     build: . # 一键构建镜像  =================  以上为构建命令，以下为运行命令
     restart: always # 总是重启
     container_name: DDNStatsCard # 运行后的容器的名称

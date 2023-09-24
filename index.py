@@ -696,5 +696,3 @@ def getsvg():
 @app.route("/skinjson", methods=["GET"])
 def getskinjson():
     return requests.get('https://ddnet.org/skins/skin/skins.json').text
-
-app.run()

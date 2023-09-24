@@ -155,6 +155,7 @@ function generate() {
     }
     document.getElementsByClassName('card-preview')[0].innerHTML = '';
     generate_url.innerText = window.location.protocol+'//'+window.location.host + '/svg?username=' + nickname + '&team=' + team + '&skin=' + skin;
+    generate_url.appendChild(copy_url_btn)
     render_card(nickname, team, skin)
 
 }

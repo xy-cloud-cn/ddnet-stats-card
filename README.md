@@ -1,7 +1,7 @@
 # ddnet-stats-card
 Generate ddnet profile stats cards / 生成你的 ddnet 统计卡片
 
-![DDcard](https://ddcard.xy-cloud.xyz/svg?username=xy_cloud&team=TeeFun&skin=AmethystCat)
+![DDcard](https://ddcard.xy-cloud.xyz/svg?username=xy_cloud&team=TeeFun&skin=https://ddnet.org/skins/skin/community/AmethystCat.png)
 
 url:https://ddcard.xy-cloud.xyz
 
